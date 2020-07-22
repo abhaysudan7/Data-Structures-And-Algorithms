@@ -2,7 +2,7 @@ package linkedlist;
 
 public class MiddleOfLIst {
 
-    static void middleElem_n(Node head) {
+    static void middleElem_m1(Node head) {
         if (head == null)
             return;
         int count = 0;
@@ -17,7 +17,7 @@ public class MiddleOfLIst {
         System.out.println(curr.data);
     }
 
-    static void middleElem_e(Node head) {
+    static void middleElem_m2(Node head) {
         if (head == null)
             return;
 
@@ -46,7 +46,7 @@ public class MiddleOfLIst {
         list.printList();
 
         System.out.print("\nMiddle Element is : ");
-        middleElem_e(list.head);
+        middleElem_m2(list.head);
     }
 
 }
