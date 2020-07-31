@@ -2,6 +2,14 @@ package linkedlist;
 
 public class NthNodeFromLast {
 
+    /**
+     * func : printNthFromEnd_m1
+     * Time: O(n)
+     * Aux Space: O(1)
+     *
+     * @param head Node
+     * @param n    int
+     */
     static void printNthFromEnd_m1(Node head, int n) {
         int len = 0;
         for (Node curr = head; curr != null; curr = curr.next)
@@ -10,12 +18,20 @@ public class NthNodeFromLast {
         if (len < n)
             return;
         Node curr = head;
-        for (int i = 0; i < (len - 3); i++) {
+        for (int i = 0; i < (len - n); i++) {
             curr = curr.next;
         }
         System.out.println(n + "th node from end is : " + curr.data);
     }
 
+    /**
+     * func : printNthFromEnd_m2
+     * Time: O(n)
+     * Aux Space: O(1)
+     *
+     * @param head Node
+     * @param n    int
+     */
     static void printNthFromEnd_m2(Node head, int n) {
         if (head == null)
             return;

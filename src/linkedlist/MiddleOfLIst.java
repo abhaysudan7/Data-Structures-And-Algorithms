@@ -2,6 +2,14 @@ package linkedlist;
 
 public class MiddleOfLIst {
 
+
+    /**
+     * func : middleElem_m1
+     * Time: O(n)
+     * Aux Space: O(1)
+     *
+     * @param head Node
+     */
     static void middleElem_m1(Node head) {
         if (head == null)
             return;
@@ -17,6 +25,13 @@ public class MiddleOfLIst {
         System.out.println(curr.data);
     }
 
+    /**
+     * func : middleElem_m2
+     * Time: O(n)
+     * Aux Space: O(1)
+     *
+     * @param head Node
+     */
     static void middleElem_m2(Node head) {
         if (head == null)
             return;
