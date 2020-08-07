@@ -25,24 +25,37 @@ public class IntersectingLists {
      */
     static Node getIntersection(Node head1, Node head2) {
 
-        if (getLengthNTail(head1).tail != getLengthNTail(head2).tail) {
+        if (head1 == null || head2 == null) return null;
+
+        ListDetails ld1 = getLengthNTail(head1);
+        ListDetails ld2 = getLengthNTail(head2);
+
+
+        if (ld1.tail != ld2.tail) {
             return null;
         }
 
-        Node smallList = getLengthNTail(head1).length > getLengthNTail(head2).length ? head2 : head1;
-        Node longList = getLengthNTail(head1).length > getLengthNTail(head2).length ? head1 : head2;
 
-        int diff = getLengthNTail(longList).length - getLengthNTail(smallList).length;
-        while (diff-- > 0) {
-            longList = longList.next;
+        Node shorter = ld1.length > ld2.length ? head2 : head1;
+        Node longer = ld1.length > ld2.length ? head1 : head2;
+
+        longer = getKthNode(longer, Math.abs(ld1.length - ld2.length));
+
+        while (shorter != longer) {
+            shorter = shorter.next;
+            longer = longer.next;
         }
 
-        while (smallList != longList) {
-            smallList = smallList.next;
-            longList = longList.next;
-        }
+        return shorter;
+    }
 
-        return smallList;
+    static Node getKthNode(Node head, int k) {
+        Node curr = head;
+        while (k > 0 && curr != null) {
+            curr = curr.next;
+            k--;
+        }
+        return curr;
     }
 
 
