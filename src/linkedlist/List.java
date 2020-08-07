@@ -2,11 +2,15 @@ package linkedlist;
 
 public class List {
     Node head;
+    Node tail;
 
     void insertBegin(int x) {
         Node temp = new Node(x);
         temp.next = head;
         head = temp;
+        if (head.next == null) {
+            tail = head;
+        }
     }
 
     void insertEnd(int x) {
@@ -20,6 +24,7 @@ public class List {
             curr = curr.next;
         }
         curr.next = temp;
+        tail = temp;
     }
 
     void printList() {
