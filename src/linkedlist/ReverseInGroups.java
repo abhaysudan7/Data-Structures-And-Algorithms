@@ -81,7 +81,7 @@ public class ReverseInGroups {
         int k = 3;
 
         list.printList();
-        list.head = reverseInGroupItr(list.head, k);
+        list.head = reverseInGroupRecur(list.head, k);
         System.out.println("Reversed Linked List : ");
         list.printList();
     }

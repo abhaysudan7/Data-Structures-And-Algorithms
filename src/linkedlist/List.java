@@ -36,6 +36,19 @@ public class List {
         System.out.println(curr.data);
     }
 
+    // Recursive function to print a linked list
+    public static void traverse(Node head) {
+        if (head == null) {
+            System.out.println("null");
+            return;
+        }
+
+
+        System.out.print(head.data + " -> ");
+
+        traverse(head.next);
+    }
+
     public static void main(String[] args) {
         List list = new List();
         list.insertBegin(20);
