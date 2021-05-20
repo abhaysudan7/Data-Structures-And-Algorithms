@@ -65,6 +65,24 @@ public class LevelOrderTraversal {
             System.out.println();
         }
     }
+    
+    //DFS approach
+    //TC: O(n)
+    public List<List<Integer>> printLevel_m3(TreeNode root) {
+        List<List<Integer>> res = new LinkedList<>();
+        levelHelper(res,root,0);
+        return res;
+    }
+    
+    private void levelHelper(List<List<Integer>> res,TreeNode root,int height){
+        if(root == null) return;
+        if(height == res.size()){
+            res.add(new LinkedList<>());
+        }
+        res.get(height).add(root.val);
+        levelHelper(res,root.left,height+1);
+        levelHelper(res,root.right,height+1);
+    }
 
 
     public static void main(String[] args) {
