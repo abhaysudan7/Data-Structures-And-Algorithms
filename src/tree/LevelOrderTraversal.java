@@ -1,6 +1,7 @@
 package tree;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -68,18 +69,18 @@ public class LevelOrderTraversal {
     
     //DFS approach
     //TC: O(n)
-    public List<List<Integer>> printLevel_m3(TreeNode root) {
+    public List<List<Integer>> printLevel_m3(Node root) {
         List<List<Integer>> res = new LinkedList<>();
         levelHelper(res,root,0);
         return res;
     }
     
-    private void levelHelper(List<List<Integer>> res,TreeNode root,int height){
+    private void levelHelper(List<List<Integer>> res,Node root,int height){
         if(root == null) return;
         if(height == res.size()){
             res.add(new LinkedList<>());
         }
-        res.get(height).add(root.val);
+        res.get(height).add(root.key);
         levelHelper(res,root.left,height+1);
         levelHelper(res,root.right,height+1);
     }

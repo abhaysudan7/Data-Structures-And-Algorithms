@@ -2,7 +2,7 @@ package stack;
 
 import java.util.Stack;
 
-public class BalancedParenthesis {
+public class BalancedParenthesesLC {
 
     static boolean isBalanced(String str) {
         Stack<Character> stack = new Stack<>();
@@ -21,6 +21,26 @@ public class BalancedParenthesis {
         }
 
         return stack.isEmpty();
+    }
+
+    public boolean isValid(String s) {
+        if((s.length() & 1) == 1) return false;
+        Stack<Character> st = new Stack();
+        for(int i = 0 ; i < s.length(); i++){
+            char c = s.charAt(i);
+            if(c == '{'){
+                st.push('}');
+            }else if(c == '{'){
+                st.push('}');
+            }else if(c == '('){
+                st.push(')');
+            }else if(c == '['){
+                st.push(']');
+            }else if(st.isEmpty() || st.pop() != c){
+                return false;
+            }
+        }
+        return st.isEmpty();
     }
 
     private static boolean matching(char a, char b) {
